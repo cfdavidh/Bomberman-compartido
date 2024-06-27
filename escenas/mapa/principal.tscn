@@ -1,10 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://bp5goq02id0oq"]
+[gd_scene load_steps=6 format=3 uid="uid://bp5goq02id0oq"]
 
+[ext_resource type="Script" path="res://scripts/mapas/principal.gd" id="1_eyspv"]
 [ext_resource type="PackedScene" uid="uid://gjofhbdvlgwe" path="res://escenas/jugador/jugador.tscn" id="1_h3fo6"]
 [ext_resource type="PackedScene" uid="uid://ddrvo0qd1j15q" path="res://escenas/mapa/mapa.tscn" id="2_ej8j2"]
+[ext_resource type="Texture2D" uid="uid://j3cppld7v4lp" path="res://icon.svg" id="4_f1wmh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jgrva"]
+size = Vector2(126, 20)
 
 [node name="Principal" type="Node2D"]
+script = ExtResource("1_eyspv")
 
 [node name="Mapa" parent="." instance=ExtResource("2_ej8j2")]
 
 [node name="Jugador" parent="." instance=ExtResource("1_h3fo6")]
+position = Vector2(135, 88)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(312, 151)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_jgrva")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+scale = Vector2(1, 0.164063)
+texture = ExtResource("4_f1wmh")
