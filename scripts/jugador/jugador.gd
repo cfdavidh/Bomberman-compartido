@@ -1,8 +1,9 @@
 extends CharacterBody2D
-
+ 
 @onready var tile_map = $"../Mapa"
 var is_moving = false
 var input_dir
+var valocidad = 0.5
 
 func _physics_process(delta:float) -> void:
 	input_dir = Vector2.ZERO
@@ -34,15 +35,17 @@ func move():
 				current_tile.y + input_dir.y,
 			)
 			#obtiene el custom data si es caminable o nó 
-			var tile_data:TileData = tile_map.get_cell_tile_data(0, target_tile)
+			var tile_data:TileData = tile_map.get_cell_tile_data(target_tile)
 			#si no es caminable retorna
 			if tile_data.get_custom_data("walkable") == false:
 				move_false()
 				return
 			
-			var tween = create_tween()
-			tween.tween_property(self, "position", tile_map.map_to_local(target_tile), 1)
+			var tween:Tween = create_tween()
+			tween.tween_property(self, "position", tile_map.map_to_local(target_tile), valocidad)
 			tween.tween_callback(move_false)
+			print(current_tile)
+
 
 func move_false():
 	is_moving = false
