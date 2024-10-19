@@ -1,6 +1,6 @@
 extends CharacterBody2D
  
-@onready var tile_map = $"../Mapa"
+@onready var tile_map = $"../Node2D/Mapa"
 var is_moving = false
 var input_dir
 var valocidad = 0.5
