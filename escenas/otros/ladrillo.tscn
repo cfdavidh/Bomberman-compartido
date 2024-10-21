@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://8hswjb7mffcv"]
+
+[ext_resource type="Texture2D" uid="uid://cdfksw5hq0jaw" path="res://sprite guardado/bloques.png" id="1_2vrtw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gotea"]
+atlas = ExtResource("1_2vrtw")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aeg23"]
+size = Vector2(16, 16)
+
+[node name="Ladrillo" type="StaticBody2D" groups=["ladrillo"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_gotea")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_aeg23")

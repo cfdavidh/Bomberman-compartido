@@ -1,6 +1,6 @@
 extends CharacterBody2D
  
-@onready var tile_map = $"../Node2D/Mapa"
+@onready var tile_map = $"../LevelManager".get_child(0)
 var is_moving = false
 var input_dir
 var valocidad = 0.5
@@ -37,6 +37,9 @@ func move():
 			#obtiene el custom data si es caminable o nó 
 			var tile_data:TileData = tile_map.get_cell_tile_data(target_tile)
 			#si no es caminable retorna
+			if tile_data == null:
+				move_false()
+				return
 			if tile_data.get_custom_data("walkable") == false:
 				move_false()
 				return
