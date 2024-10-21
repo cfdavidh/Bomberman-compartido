@@ -1,10 +1,11 @@
 extends Node2D
 
+@onready var jugador: CharacterBody2D = self.get_parent().find_child("Jugador")
 @onready var timer: Timer = $Timer
-@onready var ray1: RayCast2D = $RayCast2D
-@onready var ray2: RayCast2D = $RayCast2D2
-@onready var ray3: RayCast2D = $RayCast2D3
-@onready var ray4: RayCast2D = $RayCast2D4
+@onready var ray1: RayCast2D = $Arriba
+@onready var ray2: RayCast2D = $Abajo
+@onready var ray3: RayCast2D = $Derecha
+@onready var ray4: RayCast2D = $Izquierda
 var bandera1 = true
 var bandera2 = true
 var bandera3 = true
@@ -34,17 +35,22 @@ func _physics_process(delta: float) -> void:
 			borrar_array(ray4, anotador)
 
 func borrar_array(rayc, anotador):
+	var collition = rayc.get_collision_point()
 	match anotador:
 		1:
 			bandera1 = false
+			collition.y -= 8
 		2:
 			bandera2 = false
+			collition.y += 8
 		3:
 			bandera3 = false
+			collition.x += 8
 		4:
 			bandera4 = false
+			collition.x -= 8
 	
-	GLOBAL.coordenadas.append(rayc.get_collision_point())
+	GLOBAL.coordenadas.append(collition)
 	print(rayc.get_collision_point(), rayc.get_collider(), "colicionó con", rayc )
 	rayc.queue_free()
 
@@ -65,6 +71,16 @@ func lengthen_raycast_4(rayc):
 	tween.tween_property(rayc, "target_position",Vector2(-32,0), 0.5)
 
 func _on_timer_timeout() -> void:
+	
+	if GLOBAL.player_position == GLOBAL.bomb_position:
+		print("jugador borrado")
+		#jugador.queue_free()
+	
+	ray1.enabled = true
+	ray2.enabled = true
+	ray3.enabled = true
+	ray4.enabled = true
+	
 	lengthen_raycast_1(ray1)
 	lengthen_raycast_2(ray2)
 	lengthen_raycast_3(ray3)

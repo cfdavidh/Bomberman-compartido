@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/otros/bomba.gd" id="1_bh1i6"]
 [ext_resource type="Texture2D" uid="uid://cst0w882lkhwa" path="res://sprite guardado/bomb.png" id="2_83jio"]
 
-[node name="Bomba" type="Node2D"]
+[node name="Bomba" type="Node2D" groups=["bomba"]]
 script = ExtResource("1_bh1i6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -12,16 +12,24 @@ texture = ExtResource("2_83jio")
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
+[node name="Arriba" type="RayCast2D" parent="."]
+enabled = false
 target_position = Vector2(0, 0)
+collision_mask = 3
 
-[node name="RayCast2D2" type="RayCast2D" parent="."]
+[node name="Abajo" type="RayCast2D" parent="."]
+enabled = false
 target_position = Vector2(0, 0)
+collision_mask = 3
 
-[node name="RayCast2D3" type="RayCast2D" parent="."]
+[node name="Derecha" type="RayCast2D" parent="."]
+enabled = false
 target_position = Vector2(0, 0)
+collision_mask = 3
 
-[node name="RayCast2D4" type="RayCast2D" parent="."]
+[node name="Izquierda" type="RayCast2D" parent="."]
+enabled = false
 target_position = Vector2(0, 0)
+collision_mask = 3
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -11,14 +11,17 @@ func _input(event: InputEvent) -> void:
 		var bomba_instancia = BOMBA.instantiate()
 		bomba_instancia.position = mapa.map_to_local(mapa.local_to_map($Jugador.position))
 		add_child(bomba_instancia)
+		GLOBAL.bomb_position = mapa.local_to_map(bomba_instancia.position)
 		
 
 func _physics_process(delta: float) -> void:
 	atlas_coords()
+	GLOBAL.player_position = mapa.local_to_map($Jugador.position)
+	
 
 func atlas_coords():
+	var coordenadas_temp = GLOBAL.coordenadas.duplicate()
 	for i in GLOBAL.coordenadas:
-		i.y = i.y - 8
 		var coords_borrar = mapa.local_to_map(i)
 		mapa.set_cell(coords_borrar, 0, Vector2i(2,0))
-		GLOBAL.coordenadas.pop_front()
+	GLOBAL.coordenadas.clear()

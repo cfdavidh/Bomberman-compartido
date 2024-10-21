@@ -10,6 +10,7 @@ region = Rect2(0, 0, 16, 16)
 size = Vector2(16, 16)
 
 [node name="Ladrillo" type="StaticBody2D" groups=["ladrillo"]]
+collision_layer = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_gotea")

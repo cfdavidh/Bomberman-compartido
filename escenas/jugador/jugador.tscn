@@ -6,7 +6,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g6pm3"]
 size = Vector2(14, 14)
 
-[node name="Jugador" type="CharacterBody2D"]
+[node name="Jugador" type="CharacterBody2D" groups=["jugador"]]
+collision_mask = 3
 script = ExtResource("1_tbgrv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
