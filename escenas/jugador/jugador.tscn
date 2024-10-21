@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://bssatsdtp1nvw" path="res://sprite guardado/ladron.png" id="2_qb0pi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g6pm3"]
-size = Vector2(14, 14)
+size = Vector2(14, 13)
 
-[node name="Jugador" type="CharacterBody2D" groups=["jugador"]]
+[node name="Jugador" type="CharacterBody2D"]
 collision_mask = 3
 script = ExtResource("1_tbgrv")
 
@@ -14,5 +14,5 @@ script = ExtResource("1_tbgrv")
 texture = ExtResource("2_qb0pi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_g6pm3")

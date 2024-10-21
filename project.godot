@@ -29,9 +29,7 @@ window/stretch/mode="canvas_items"
 
 [global_group]
 
-ladrillo=""
-jugador=""
-bomba=""
+pared=""
 
 [rendering]
 

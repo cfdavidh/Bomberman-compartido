@@ -9,7 +9,7 @@ region = Rect2(0, 0, 16, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aeg23"]
 size = Vector2(16, 16)
 
-[node name="Ladrillo" type="StaticBody2D" groups=["ladrillo"]]
+[node name="Ladrillo" type="StaticBody2D"]
 collision_layer = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

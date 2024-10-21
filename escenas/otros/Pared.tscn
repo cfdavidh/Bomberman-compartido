@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbglvm7e6jokk"]
+
+[ext_resource type="Texture2D" uid="uid://cdfksw5hq0jaw" path="res://sprite guardado/bloques.png" id="1_660ox"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5kcu"]
+atlas = ExtResource("1_660ox")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a5k0o"]
+size = Vector2(16, 16)
+
+[node name="Pared" type="StaticBody2D" groups=["pared"]]
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_a5kcu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_a5k0o")

@@ -13,7 +13,6 @@ var bandera4 = true
 
 func _ready() -> void:
 	timer.start(1.5)
-	
 
 
 func _physics_process(delta: float) -> void:
@@ -36,6 +35,8 @@ func _physics_process(delta: float) -> void:
 
 func borrar_array(rayc, anotador):
 	var collition = rayc.get_collision_point()
+	var collition_whit =  rayc.get_collider().is_in_group("pared")
+	
 	match anotador:
 		1:
 			bandera1 = false
@@ -50,9 +51,15 @@ func borrar_array(rayc, anotador):
 			bandera4 = false
 			collition.x -= 8
 	
-	GLOBAL.coordenadas.append(collition)
-	print(rayc.get_collision_point(), rayc.get_collider(), "colicionó con", rayc )
-	rayc.queue_free()
+	if collition_whit:
+		print(rayc.get_collision_point(), rayc.get_collider(), "colicionó con", rayc )
+		rayc.queue_free()
+		return
+	else:
+		GLOBAL.coordenadas.append(collition)
+		print(rayc.get_collision_point(), rayc.get_collider(), "colicionó con", rayc )
+		rayc.queue_free()
+	
 
 func lengthen_raycast_1(rayc):
 	var tween:Tween = get_tree().create_tween()

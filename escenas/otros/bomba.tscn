@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/otros/bomba.gd" id="1_bh1i6"]
 [ext_resource type="Texture2D" uid="uid://cst0w882lkhwa" path="res://sprite guardado/bomb.png" id="2_83jio"]
 
-[node name="Bomba" type="Node2D" groups=["bomba"]]
+[node name="Bomba" type="Node2D"]
 script = ExtResource("1_bh1i6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
