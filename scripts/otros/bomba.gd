@@ -10,9 +10,11 @@ var bandera1 = true
 var bandera2 = true
 var bandera3 = true
 var bandera4 = true
+var encima_bomba = true
 
 func _ready() -> void:
 	timer.start(1.5)
+	GLOBAL.bomba_si = true
 
 
 func _physics_process(delta: float) -> void:
@@ -32,6 +34,11 @@ func _physics_process(delta: float) -> void:
 		var anotador = 4
 		if ray4.is_colliding(): 
 			borrar_array(ray4, anotador)
+	
+	if encima_bomba:
+		pass
+	#if GLOBAL.player_position == GLOBAL.bomb_position:
+	#	print("jugador borrado")
 
 func borrar_array(rayc, anotador):
 	var collition = rayc.get_collision_point()
@@ -95,4 +102,5 @@ func _on_timer_timeout() -> void:
 	
 	
 	await get_tree().create_timer(2).timeout
+	GLOBAL.bomb_position = Vector2i(-20,-20)
 	self.queue_free()

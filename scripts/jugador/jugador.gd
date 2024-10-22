@@ -43,6 +43,9 @@ func move():
 			if tile_data.get_custom_data("walkable") == false:
 				move_false()
 				return
+			if target_tile == GLOBAL.bomb_position:
+				move_false()
+				return
 			
 			var tween:Tween = create_tween()
 			tween.tween_property(self, "position", tile_map.map_to_local(target_tile), valocidad)
