@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" path="res://scripts/mapas/principal.gd" id="1_eyspv"]
 [ext_resource type="PackedScene" uid="uid://gjofhbdvlgwe" path="res://escenas/jugador/jugador.tscn" id="1_h3fo6"]
-[ext_resource type="PackedScene" uid="uid://ddrvo0qd1j15q" path="res://escenas/mapa/mapa.tscn" id="2_ej8j2"]
+[ext_resource type="PackedScene" uid="uid://ddrvo0qd1j15q" path="res://escenas/mapa/mapabase.tscn" id="2_ej8j2"]
 
 [node name="Principal" type="Node2D"]
 script = ExtResource("1_eyspv")
 
 [node name="LevelManager" type="Node2D" parent="."]
 
-[node name="Mapa" parent="LevelManager" instance=ExtResource("2_ej8j2")]
+[node name="MapaBase" parent="LevelManager" instance=ExtResource("2_ej8j2")]
 
 [node name="Jugador" parent="." instance=ExtResource("1_h3fo6")]
 position = Vector2(8, 8)

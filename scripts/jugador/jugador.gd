@@ -3,7 +3,8 @@ extends CharacterBody2D
 @onready var tile_map = $"../LevelManager".get_child(0)
 var is_moving = false
 var input_dir
-var valocidad = 0.5
+var velocidad = 0.5
+
 
 func _physics_process(delta:float) -> void:
 	input_dir = Vector2.ZERO
@@ -48,7 +49,7 @@ func move():
 				return
 			
 			var tween:Tween = create_tween()
-			tween.tween_property(self, "position", tile_map.map_to_local(target_tile), valocidad)
+			tween.tween_property(self, "position", tile_map.map_to_local(target_tile), velocidad)
 			tween.tween_callback(move_false)
 			print(current_tile)
 
