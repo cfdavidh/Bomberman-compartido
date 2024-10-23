@@ -10,7 +10,7 @@ var bandera1 = true
 var bandera2 = true
 var bandera3 = true
 var bandera4 = true
-var encima_bomba = true
+
 
 func _ready() -> void:
 	timer.start(1.5)
@@ -34,11 +34,8 @@ func _physics_process(delta: float) -> void:
 		var anotador = 4
 		if ray4.is_colliding(): 
 			borrar_array(ray4, anotador)
-	
-	if encima_bomba:
-		pass
-	#if GLOBAL.player_position == GLOBAL.bomb_position:
-	#	print("jugador borrado")
+
+
 
 func borrar_array(rayc, anotador):
 	var collition = rayc.get_collision_point()
